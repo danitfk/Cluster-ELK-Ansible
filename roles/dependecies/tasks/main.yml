@@ -11,6 +11,7 @@
 - name: "Install handy tools"
   yum:
     name: "{{ packages }}"
+    state: latest
   vars:
     packages: 
     - htop
@@ -18,3 +19,6 @@
     - wget
     - curl
     - telnet
+    - python2-apt
+    - python2-pip
+    - libselinux-python

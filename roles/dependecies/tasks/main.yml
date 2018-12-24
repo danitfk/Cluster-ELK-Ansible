@@ -23,7 +23,10 @@
     - telnet
     - python2-pip
     - libselinux-python
+
 - name: "Disable SELinux"
   selinux:
     state: "disabled"
-
+  vars:
+    selinux_config: "/etc/selinux/config"
+  when: selinux_config is exists

@@ -4,6 +4,7 @@
   vars_files:
     - group_vars/all.yml
   roles:
+    - { role: dependecies }
     - { role: ansible-elk/elasticsearch }
     - { role: ansible-elk/logstash }
     - { role: ansible-elk/nginx }

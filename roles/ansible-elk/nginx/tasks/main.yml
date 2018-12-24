@@ -13,11 +13,6 @@
     name: [nginx, httpd-tools, python-httplib2]
   become: true
 
-# SELinux boolean for nginx
-- name: Apply SELinux boolean httpd_can_network_connect
-  seboolean: name=httpd_can_network_connect state=yes persistent=yes
-  become: true
-
 # create /etc/nginx/conf.d/ directory
 - name: Create nginx directory structure
   file: path=/etc/nginx/conf.d/

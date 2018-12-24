@@ -1,0 +1,60 @@
+
+---
+#
+# install curator tool for managing elasticsearch
+#
+
+- name: Copy curator yum repo file
+  copy:
+    src=curator.repo
+    dest=/etc/yum.repos.d/curator.repo
+    owner=root
+    group=root
+    mode=0644
+  become: true
+  when: install_curator_tool
+
+- name: Import curator GPG Key
+  rpm_key: key=http://packages.elastic.co/GPG-KEY-elasticsearch
+    state=present
+  when: install_curator_tool
+  become: true
+
+- name: Install curator and python-setuptools
+  yum:
+    name: elasticsearch-curator
+  become: true
+  when: install_curator_tool
+
+- name: Setup curator config
+  template:
+    src=curator-config.yml.j2
+    dest=/etc/elasticsearch/curator-config.yml
+    owner=root
+    group=root
+    mode=0644
+  become: true
+  when: install_curator_tool
+
+- name: Setup curator template file
+  template:
+    src=curator-action.yml.j2
+    dest=/etc/elasticsearch/curator-action.yml
+    owner=root
+    group=root
+    mode=0644
+  become: true
+  when: install_curator_tool
+
+# Runs cron job to cleanup indices every weekday.
+# you should adjust this to your needs
+- cron:
+    name: Curator run
+    weekday: '*'
+    minute: 0
+    hour: 12
+    user: root
+    job: "curator --config /etc/elasticsearch/curator-config.yml /etc/elasticsearch/curator-action.yml >> /var/log/curator.log 2>&1"
+    cron_file: curator-daily-cleanup
+  when: install_curator_tool
+  become: true

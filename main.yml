@@ -4,10 +4,10 @@
   vars_files:
     - group_vars/all.yml
   roles:
-    - { role: roles/ansible-elk/elasticsearch }
-    - { role: roles/ansible-elk/logstash }
-    - { role: roles/ansible-elk/nginx }
-    - { role: roles/ansible-elk/kibana }
-    - { role: roles/ansible-elk/xpack, when: ((install_elasticsearch_xpack) or (install_kibana_xpack) or (install_logstash_xpack)) }
-    - { role: roles/ansible-elk/firewall, when: manage_firewall }
-    - { role: roles/instructions }
+    - { role: ansible-elk/elasticsearch }
+    - { role: ansible-elk/logstash }
+    - { role: ansible-elk/nginx }
+    - { role: ansible-elk/kibana }
+    - { role: ansible-elk/xpack, when: ((install_elasticsearch_xpack) or (install_kibana_xpack) or (install_logstash_xpack)) }
+    - { role: ansible-elk/firewall, when: manage_firewall }
+    - { role: instructions }

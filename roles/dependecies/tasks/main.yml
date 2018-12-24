@@ -21,7 +21,6 @@
     - wget
     - curl
     - telnet
-    - python2-apt
     - python2-pip
     - libselinux-python
 - name: "Disable SELinux"

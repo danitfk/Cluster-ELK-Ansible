@@ -45,14 +45,7 @@ elk_server_ssl_cert_port: 8080
 kibana_user: admin
 kibana_password: admin
 
-### logging backend ###
-# you can pick between logstash or fluentd
-# if left empty logstash will be used
-### accepted options ###
-# logging_backend:
-# logging_backend: logstash
-# logging_backend: fluentd
-logging_backend:
+logging_backend: logstash
 #
 ### logstash options ###
 logstash_syslog_port: 5044
@@ -61,10 +54,7 @@ logstash_localsyslog_port: 5000
 # set this to true if you want to accept
 # external syslog traffic
 syslog_listen_external: false
-### fluentd options ###
-fluentd_syslog_port: 42185
-fluentd_http_port: 9919
-fluentd_debug_port: 24230
+
 ## elasticsearch local port listener
 # general usage will not need elasticsearch listening
 # outside of localhost, if you want to apply firewall rules

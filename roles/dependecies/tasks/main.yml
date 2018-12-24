@@ -1,0 +1,20 @@
+---
+- name: "Upgrade OS and Packages to Latest version"
+  yum: name="*" state="latest"
+
+- name: "Development Tools packages"
+  yum: name="@Development tools" state="test"
+
+- name: "Install epel-release"
+  yum: name="epel-release" state="latest"
+
+- name: "Install handy tools"
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages: 
+    - htop
+    - net-tools
+    - wget
+    - curl
+    - telnet

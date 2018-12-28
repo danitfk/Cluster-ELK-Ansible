@@ -84,3 +84,6 @@ install_kibana_xpack: false
 # install logstash x-pack
 install_logstash_xpack: false
 
+### Cluster Options
+## Elasticsearch clustername
+elasticsearch_cluster_name: MY_LITTLE_CLUSTER

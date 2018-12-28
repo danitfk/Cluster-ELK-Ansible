@@ -10,12 +10,7 @@ node.master: true
 node.data: true
 {% endif %}
 # Listen on All interfaces over network
-{% if es_listen_external %}
 network.host: 0.0.0.0 
-{% endif %}
-{% if not es_listen_external %}
-#network.host: {{ ansible_default_ipv4.address }}
-{% endif %}
 
 # Avoid Split Brain in cluster 
 discovery.zen.minimum_master_nodes: 2

@@ -87,5 +87,5 @@ install_logstash_xpack: false
 ### Cluster Options
 ## Elasticsearch clustername
 es_cluster_name: MY_LITTLE_CLUSTER
-# Type of Cluster node: master / data
-es_cluster_node: master 
+# Cluster nodes
+es_cluster_unicast: '["172.20.6.11","172.20.6.12","172.20.6.13"]'

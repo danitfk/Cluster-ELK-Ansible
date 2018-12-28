@@ -16,5 +16,6 @@ install:
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible-lint; fi
 
 script:
+  - cp main.yml.example main.yml
   - ansible-playbook -i tests/inventory main.yml --syntax-check
 

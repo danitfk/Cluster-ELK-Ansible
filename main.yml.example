@@ -1,0 +1,14 @@
+---
+- hosts: ELK-01
+  remote_user: "{{ ansible_system_user }}"
+  vars_files:
+    - group_vars/all.yml
+  roles:
+    - { role: dependecies }
+    - { role: ansible-elk/elasticsearch }
+#    - { role: ansible-elk/logstash }
+#    - { role: ansible-elk/nginx }
+#    - { role: ansible-elk/kibana }
+#    - { role: ansible-elk/xpack, when: ((install_elasticsearch_xpack) or (install_kibana_xpack) or (install_logstash_xpack)) }
+#    - { role: ansible-elk/firewall, when: manage_firewall }
+#    - { role: instructions }

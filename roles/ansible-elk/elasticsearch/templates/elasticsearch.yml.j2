@@ -2,6 +2,7 @@
 
 # ElasticSearch Cluster Configs
 cluster.name: {{ es_cluster_name }}
+node.name: {{ es_node_name }}
 # Node type
 {% if es_cluster_node == "master" %}
 node.master: true

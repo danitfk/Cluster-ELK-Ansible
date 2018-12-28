@@ -19,3 +19,6 @@ network.host: 0.0.0.0
 
 # Avoid Split Brain in cluster 
 discovery.zen.minimum_master_nodes: 2
+
+#detail the private IPs of your nodes:
+discovery.zen.ping.unicast.hosts: {{ es_cluster_unicast }}

@@ -1,5 +1,0 @@
-[ELK_CLUSTER]
-ELK-01 ansible_host=172.20.6.11 ansible_user=root ansible_port=60011 es_node_name=ELK-01 es_cluster_node=master es_cluster_name=MY_LITTLE_CLUSTER 
-ELK-02 ansible_host=172.20.6.12 ansible_user=root ansible_port=60012 es_node_name=ELK-02 es_cluster_node=data es_cluster_name=MY_LITTLE_CLUSTER
-ELK-03 ansible_host=172.20.6.13 ansible_user=root ansible_port=60013 es_node_name=ELK-03 es_cluster_node=data es_cluster_name=MY_LITTLE_CLUSTER
-

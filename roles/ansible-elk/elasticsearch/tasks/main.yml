@@ -120,3 +120,9 @@
 - name: Setup elasticsearch service to autostart
   service: name=elasticsearch state=started enabled=true
   become: true
+
+- name: Modify /etc/sysconfig/elasticsearch for production usage
+  lineinfile:
+    path: /etc/sysconfig/elasticsearch
+    line: "MAX_LOCKED_MEMORY=unlimited"
+    insertbefore: EOF

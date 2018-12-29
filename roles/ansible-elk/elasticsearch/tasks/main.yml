@@ -126,3 +126,9 @@
     path: /etc/sysconfig/elasticsearch
     line: "MAX_LOCKED_MEMORY=unlimited"
     insertbefore: EOF
+
+- name: Add File Descriptor limit in /etc/security/limits.conf
+  lineinfile:
+    path: /etc/security/limits.conf
+    line: "elasticsearch  -  nofile  65536"
+    insertbefore: EOF

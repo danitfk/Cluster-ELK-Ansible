@@ -51,7 +51,7 @@
   become: true
 
 - name: Copy kibana.yml file
-  file:
+  copy:
     src=elasticsearch.yml.j2
     dest=/etc/kibana/kibana.yml
     owner=root

@@ -8,8 +8,8 @@
     - { role: ansible-elk/elasticsearch, when: elasticsearch }
     - { role: ansible-elk/logstash , when: logstash }
     - { role: ansible-elk/nginx, when: kibana}
-    - { role: ansible-elk/kibana, when: kibana }
     - { role: ansible-elk/elk_client, when: kibana }
+    - { role: ansible-elk/kibana, when: kibana }
     - { role: ansible-elk/xpack, when: ((install_elasticsearch_xpack) or (install_kibana_xpack) or (install_logstash_xpack)) }
     - { role: ansible-elk/firewall, when: manage_firewall }
     - { role: instructions }

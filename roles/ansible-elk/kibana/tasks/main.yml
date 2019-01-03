@@ -50,6 +50,17 @@
   when: kibana_user_pwfile_exists != 0
   become: true
 
+- name: Copy kibana.yml file
+  file:
+    src=elasticsearch.yml.j2
+    dest=/etc/kibana/kibana.yml
+    owner=root
+    group=elasticsearch
+    mode=0660
+  become: true
+  ignore_errors: true
+
+
 - name: Setup kibana service
   service: name=kibana state=started enabled=true
   become: true

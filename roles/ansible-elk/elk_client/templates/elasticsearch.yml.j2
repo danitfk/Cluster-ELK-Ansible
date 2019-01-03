@@ -1,7 +1,16 @@
+# Managed by Cluster-ELK-Ansible
+
+# ElasticSearch Cluster Configs
+cluster.name: {{ es_cluster_name }}
+node.name: {{ es_node_name }}
 node.master: false
 node.data: false
 node.ingest: false
-cluster.name: {{ es_cluster_name }}
-network.host: localhost
+
+# Listen on All interfaces over network
+network.host: 0.0.0.0 
+
+# Detail the private IPs of your nodes:
+discovery.zen.ping.unicast.hosts: {{ es_cluster_unicast }}
 http.port: 9200
 

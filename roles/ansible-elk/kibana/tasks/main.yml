@@ -52,7 +52,7 @@
 
 - name: Copy kibana.yml file
   copy:
-    src=elasticsearch.yml.j2
+    src=kibana.yml
     dest=/etc/kibana/kibana.yml
     owner=root
     group=elasticsearch
